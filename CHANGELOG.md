@@ -1,6 +1,97 @@
 # Changelog
 
 
+## v1.5.0
+
+[compare changes](https://github.com/antdv-pro/antdv-pro/compare/v1.4.0...v1.5.0)
+
+### 🚀 Enhancements
+
+- Update deps close #218 ([#218](https://github.com/antdv-pro/antdv-pro/issues/218))
+
+### 🔥 Performance
+
+- 优化路由拦截器中的errorHandler响应到401（鉴权失败）状态码时路由器追加返回redirect的问题 ([80bc908](https://github.com/antdv-pro/antdv-pro/commit/80bc908))
+
+### 🏡 Chore
+
+- Use rolldown options ([80a7a1f](https://github.com/antdv-pro/antdv-pro/commit/80a7a1f))
+- Change version ([c6b9bc6](https://github.com/antdv-pro/antdv-pro/commit/c6b9bc6))
+
+### ❤️ Contributors
+
+- Aibayanyu20 <aibayanyu@qq.com>
+- 阿鸡艾克斯蒙 <adiovo@163.com>
+
+## v1.4.0
+
+[compare changes](https://github.com/antdv-pro/antdv-pro/compare/v1.3.2...v1.4.0)
+
+### 🚀 Enhancements
+
+- Use mock-h3 replace nitro ([33e1ff7](https://github.com/antdv-pro/antdv-pro/commit/33e1ff7))
+
+### 🩹 Fixes
+
+- The newly added tag theme is not working on the dark background of the personal center ([27cb016](https://github.com/antdv-pro/antdv-pro/commit/27cb016))
+
+### 🏡 Chore
+
+- **release:** V1.3.2 ([71529e3](https://github.com/antdv-pro/antdv-pro/commit/71529e3))
+- I18n ally ext's  config compatibility，remove vite v6 invalid opts ([f995df2](https://github.com/antdv-pro/antdv-pro/commit/f995df2))
+- Use rolldown-vite build project ([91e9091](https://github.com/antdv-pro/antdv-pro/commit/91e9091))
+
+### ❤️ Contributors
+
+- Aibayanyu20 <aibayanyu@qq.com>
+- ZhouWei <1244620067@qq.com>
+- 阿鸡艾克斯蒙 <dosicker@gmail.com>
+
+## v1.3.2
+
+[compare changes](https://github.com/antdv-pro/antdv-pro/compare/v1.3.1...v1.3.2)
+
+### 🩹 Fixes
+
+- Fix multi tab animation not effect ([03540a0](https://github.com/antdv-pro/antdv-pro/commit/03540a0))
+- Dark mode refresh not effect close #208 ([#208](https://github.com/antdv-pro/antdv-pro/issues/208))
+- Mobile sider logo background not has bg close #207 ([#207](https://github.com/antdv-pro/antdv-pro/issues/207))
+
+### 🏡 Chore
+
+- **release:** V1.3.1 ([134444a](https://github.com/antdv-pro/antdv-pro/commit/134444a))
+- Change compactAlgorithm default value ([4b4d66d](https://github.com/antdv-pro/antdv-pro/commit/4b4d66d))
+- Update deps ([6690973](https://github.com/antdv-pro/antdv-pro/commit/6690973))
+- Change vite config ([6020a51](https://github.com/antdv-pro/antdv-pro/commit/6020a51))
+
+### ❤️ Contributors
+
+- Aibayanyu20 <aibayanyu@qq.com>
+
+## v1.3.1
+
+[compare changes](https://github.com/antdv-pro/antdv-pro/compare/v1.3.0...v1.3.1)
+
+### 🩹 Fixes
+
+- Fix menu transition close #197 ([#197](https://github.com/antdv-pro/antdv-pro/issues/197))
+- Fix theme ([479ac5f](https://github.com/antdv-pro/antdv-pro/commit/479ac5f))
+- First load compactAlgorithm not effect close #204 ([#204](https://github.com/antdv-pro/antdv-pro/issues/204))
+- Fix scroller layout override ([626579f](https://github.com/antdv-pro/antdv-pro/commit/626579f))
+
+### 🏡 Chore
+
+- Update vue3.5 ([3715bae](https://github.com/antdv-pro/antdv-pro/commit/3715bae))
+- Update deps ([a9175e5](https://github.com/antdv-pro/antdv-pro/commit/a9175e5))
+- Change ts version ([f81e1c6](https://github.com/antdv-pro/antdv-pro/commit/f81e1c6))
+- Change Andtv-Pro to Antdv-Pro ([3b97af4](https://github.com/antdv-pro/antdv-pro/commit/3b97af4))
+- Update deps ([341becb](https://github.com/antdv-pro/antdv-pro/commit/341becb))
+
+### ❤️ Contributors
+
+- Aibayanyu20 <aibayanyu@qq.com>
+- 红烧粽子 ([@songsong0707](http://github.com/songsong0707))
+
 ## v1.3.0
 
 [compare changes](https://github.com/antdv-pro/antdv-pro/compare/v1.1.0...v1.3.0)

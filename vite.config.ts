@@ -1,9 +1,10 @@
 /// <reference types="vitest" />
-import { resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import * as process from 'node:process'
-import { loadEnv } from 'vite'
+
 import type { ConfigEnv, UserConfig } from 'vite'
+import { resolve } from 'node:path'
+import * as process from 'node:process'
+import { fileURLToPath } from 'node:url'
+import { loadEnv } from 'vite'
 import { createVitePlugins } from './plugins'
 import { OUTPUT_DIR } from './plugins/constants'
 
@@ -82,10 +83,33 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       outDir: OUTPUT_DIR,
       rollupOptions: {
         output: {
-          manualChunks: {
-            vue: ['vue', 'vue-router', 'pinia', 'vue-i18n', '@vueuse/core'],
-            antd: ['ant-design-vue', '@ant-design/icons-vue', 'dayjs'],
-            // lodash: ['loadsh-es'],
+          advancedChunks: {
+            groups: [
+              {
+                test: /[\\/]node_modules[\\/](vue|vue-router|pinia|vue-i18n|@vueuse[\\/]core)[\\/]/,
+                name: 'vue',
+              },
+              {
+                test: /[\\/]node_modules[\\/](ant-design-vue|@ant-design[\\/]icons-vue|dayjs)[\\/]/,
+                name: 'antd',
+              },
+            ],
+          },
+        },
+      },
+      rolldownOptions: {
+        output: {
+          advancedChunks: {
+            groups: [
+              {
+                test: /[\\/]node_modules[\\/](vue|vue-router|pinia|vue-i18n|@vueuse[\\/]core)[\\/]/,
+                name: 'vue',
+              },
+              {
+                test: /[\\/]node_modules[\\/](ant-design-vue|@ant-design[\\/]icons-vue|dayjs)[\\/]/,
+                name: 'antd',
+              },
+            ],
           },
         },
       },
@@ -103,9 +127,9 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         // },
       },
     },
-    test: {
-      globals: true,
-      environment: 'jsdom',
-    },
+    // test: {
+    //   globals: true,
+    //   environment: 'jsdom',
+    // },
   }
 }

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { CSSProperties } from 'vue'
+import type { RouteLocationNormalized } from 'vue-router'
 import {
   CloseOutlined,
   MoreOutlined,
   ReloadOutlined,
 } from '@ant-design/icons-vue'
-import type { RouteLocationNormalized } from 'vue-router'
 import { listenerRouteChange, removeRouteListener } from '~@/utils/route-listener'
 import { useLayoutState } from '~/layouts/basic-layout/context'
 
@@ -14,36 +14,22 @@ const { list, activeKey } = storeToRefs(multiTabStore)
 const { layoutSetting } = storeToRefs(useAppStore())
 const {
   layout,
-  isMobile,
-  collapsed,
-  collapsedWidth,
-  siderWidth,
-  menu,
-  selectedMenus,
 } = useLayoutState()
 const tabStyle = computed<CSSProperties>(() => {
   const style: CSSProperties = {}
   if (layoutSetting.value.multiTabFixed) {
-    style.position = 'fixed'
+    style.position = 'sticky'
     style.top = `${layoutSetting.value.headerHeight}px`
-    style.zIndex = 199
+    style.zIndex = 3
     style.right = 0
   }
-  if ((layout.value === 'side' || layout.value === 'mix') && menu.value) {
-    // bugfix: https://github.com/antdv-pro/antdv-pro/issues/172
-    if (!isMobile.value && layoutSetting.value.multiTabFixed && selectedMenus.value?.length) {
-      const width = collapsed.value ? collapsedWidth.value : siderWidth.value
-      style.width = `calc(100% - ${width}px)`
-    }
-  }
   // bugfix https://github.com/antdv-pro/antdv-pro/issues/173
-  if (layoutSetting.value.header === false)
+  if (layoutSetting.value.header === false || (layout.value !== 'mix' && layoutSetting.value.fixedHeader === false))
     style.top = '0px'
 
   return style
 })
 const tabsRef = shallowRef()
-const { height } = useElementBounding(tabsRef)
 
 function handleSwitch({ key }: any, current: string) {
   if (key === 'closeCurrent')
@@ -99,15 +85,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div
-    v-if="layoutSetting.multiTabFixed"
-    :style="{ height: `${height}px` }"
-  />
   <a-tabs
     ref="tabsRef"
     :active-key="activeKey"
     :style="tabStyle"
-    class="bg-white dark:bg-#242525 w-100% pro-ant-multi-tab"
+    class=" bg-white dark:bg-#242525 w-100% pro-ant-multi-tab"
     pt-10px
     type="card"
     size="small"
@@ -205,9 +187,9 @@ onUnmounted(() => {
 
 <style lang="less">
 .pro-ant-multi-tab {
+  transition: all 0.3s;
   .ant-tabs-nav-operations {
     display: none !important;
   }
-
 }
 </style>
